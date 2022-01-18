@@ -1,0 +1,65 @@
+<!--index.wxml-->
+<view class="toggling-nav-container">
+  <view class="power_info toggling-nav-bar">
+    <div class="menu-tg-cont"  bindtap="toggleNav">
+      <image wx:if="{{!showTogglingNav}}" class="power_info_less" src="../../images/menu-svgrepo-com.svg"></image>
+      <image wx:else class="power_info_less" src="../../images/cross-close-svgrepo-com.svg"></image>
+    </div>
+    <view class="dz-title">
+      <image class="dz-logo" src="../../images/dj.jpg"></image>
+      <span class="dz-logo-text">Dong-Zheng</span>
+    </view>
+    <view class="power_info_text">
+      <image wx:if="{{userData.avatarUrl}}" class="power_info_less_ava" src="{{userData.avatarUrl}}"></image>
+      <image wx:else class="power_info_less_ava" src="../../images/user-svgrepo-com.svg"></image>
+    </view>
+  </view>
+  <view class="toggling-nav-content" wx:if="{{showTogglingNav}}">
+    <view class="" wx:key="id" wx:for-item="item" wx:for="{{togglingNavItems}}" bindtap="jumpPage" data-page="{{item.page}}">
+      <view class="toggling-nav-item-selected" wx:if="{{pageUrl == item.page}}">{{item.text}}</view>
+      <view class="toggling-nav-item" wx:else>{{item.text}}</view>
+    </view>
+  </view>
+</view>
+<view class="dong-container">
+  <van-card
+    desc="Study plans"
+    title="Apply to many universities"
+  >
+  <view slot="thumb">
+    <image class="card-image-dong" src="../../images/university-svgrepo-com.svg"></image>
+  </view>
+  <view slot="num">
+    <van-button size="small" style="float:right;">Apply now</van-button>
+  </view>
+  </van-card>
+  <!-- <view class="title">快速了解云开发</view>
+
+  <view class="top_tip">免鉴权接口调用 免部署后台 高并发</view>
+
+  <view class="power" wx:key="title" wx:for="{{powerList}}" wx:for-item="power">
+    <view class="power_info" data-index="{{index}}" bindtap="onClickPowerInfo">
+      <view class="power_info_text">
+        <view class="power_info_text_title">{{power.title}}</view>
+        <view class="power_info_text_tip">{{power.tip}}</view>
+      </view>
+      <image wx:if="{{!power.showItem}}" class="power_info_more" src="../../images/arrow.svg"></image>
+      <image wx:if="{{power.showItem}}" class="power_info_less" src="../../images/arrow.svg"></image>
+    </view>
+    <view wx:if="{{power.showItem}}">
+      <view wx:key="title" wx:for="{{power.item}}">
+        <view class="line"></view>
+        <view class="power_item" bindtap="jumpPage" data-page="{{item.page}}">
+          {{item.page}}
+          <view class="power_item_title">{{item.title}}</view>
+          <image class="power_item_icon" src="../../images/arrow.svg"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="environment" bindtap="onChangeShowEnvChoose">当前环境 {{ selectedEnv.alias }}</view>
+
+  <cloud-tip-modal showUploadTipProps="{{showUploadTip}}"></cloud-tip-modal> -->
+
+</view>
